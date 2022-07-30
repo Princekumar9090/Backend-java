@@ -27,7 +27,7 @@ private MongoDB123 mongodb123;
 
 @GetMapping("/")
 public String defaultServerMsg(){
-    return "your server has been started";
+    return "<b>your server has been started</b>";
 }
 
 @GetMapping("/getEmployees")
