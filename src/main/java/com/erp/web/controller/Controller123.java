@@ -1,10 +1,13 @@
 package com.erp.web.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +24,24 @@ public class Controller123 {
 @Autowired
 private MongoDB123 mongodb123;
 
-@RequestMapping(value = "/getEmployees", method = RequestMethod.POST)
+@RequestMapping(value = "/addEmployees", method = RequestMethod.POST)
 public Model123 addEntry(@Valid @RequestBody Model123 model123){
 	Model123 allEMployees = mongodb123.save(model123);
     return allEMployees;
 }
+
+@GetMapping("/")
+public String addEntry(){
+	
+    return "your server has been started";
+
 }
 
+@GetMapping("/getEmployees")
+public List<Model123> getAllEmployees(){
+	List<Model123> allEmployee=mongodb123.findAll();
+	return allEmployee;
+}
 //@ResponseBody
 //public ResponseEntity<String> addEntry(@RequestBody Model123 model123) {
 ////	Model123 allEMployees = mongodb123.save(model123);
@@ -36,6 +50,8 @@ public Model123 addEntry(@Valid @RequestBody Model123 model123){
 //	
 //
 //}
+
+}
 
 
 
