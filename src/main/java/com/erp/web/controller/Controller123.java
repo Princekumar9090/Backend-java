@@ -25,16 +25,14 @@ public class Controller123 {
 private MongoDB123 mongodb123;
 
 @RequestMapping(value = "/addEmployees", method = RequestMethod.POST)
-public Model123 addEntry(@Valid @RequestBody Model123 model123){
+public Model123 addEmployees(@Valid @RequestBody Model123 model123){
 	Model123 allEMployees = mongodb123.save(model123);
     return allEMployees;
 }
 
 @GetMapping("/")
-public String addEntry(){
-	
+public String defaultServerMsg(){
     return "your server has been started";
-
 }
 
 @GetMapping("/getEmployees")
