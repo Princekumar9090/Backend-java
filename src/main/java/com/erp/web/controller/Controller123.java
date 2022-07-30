@@ -1,5 +1,7 @@
 package com.erp.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ public class Controller123 {
 private MongoDB123 mongodb123;
 
 @RequestMapping(value = "/getEmployees", method = RequestMethod.POST)
-public Model123 addEntry(@RequestBody Model123 model123){
+public Model123 addEntry(@Valid @RequestBody Model123 model123){
 	Model123 allEMployees = mongodb123.save(model123);
     return allEMployees;
 }
