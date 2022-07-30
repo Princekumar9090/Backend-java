@@ -24,11 +24,6 @@ public class Controller123 {
 @Autowired
 private MongoDB123 mongodb123;
 
-@RequestMapping(value = "/addEmployees", method = RequestMethod.POST)
-public Model123 addEmployees(@Valid @RequestBody Model123 model123){
-	Model123 allEMployees = mongodb123.save(model123);
-    return allEMployees;
-}
 
 @GetMapping("/")
 public String defaultServerMsg(){
@@ -40,6 +35,14 @@ public List<Model123> getAllEmployees(){
 	List<Model123> allEmployee=mongodb123.findAll();
 	return allEmployee;
 }
+
+@RequestMapping(value = "/addEmployees", method = RequestMethod.POST)
+public Model123 addEmployees(@Valid @RequestBody Model123 model123){
+	Model123 allEMployees = mongodb123.save(model123);
+    return allEMployees;
+}
+
+
 //@ResponseBody
 //public ResponseEntity<String> addEntry(@RequestBody Model123 model123) {
 ////	Model123 allEMployees = mongodb123.save(model123);
